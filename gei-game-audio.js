@@ -171,4 +171,42 @@ window.GEI_AUDIO_UNLOCK = unlock;
 window.sound = sound;
 window.GEI_GAME_SOUND = sound;
 
+
+/* GEI AUDIO BOOTSTRAP v2
+   Explicitly unlock/resume Web Audio during the first user gesture. */
+(function(){
+  var previousSound=window.sound;
+  window.GEI_AUDIO_UNLOCK=function(){
+    try{
+      if(typeof init==='function'){
+        var c=init();
+        if(c && c.state==='suspended'){
+          var p=c.resume();
+          if(p&&p.catch)p.catch(function(){});
+        }
+        return !!c;
+      }
+    }catch(e){}
+    return false;
+  };
+  /* Resume immediately on any real gesture; capture phase runs before mission handlers. */
+  ['pointerdown','touchstart','mousedown','keydown'].forEach(function(type){
+    document.addEventListener(type,function(){
+      try{window.GEI_AUDIO_UNLOCK()}catch(e){}
+    },{capture:true,passive:true,once:true});
+  });
+})();
+
+})();
+
+/* GEI AUDIO SAFE SOUND WRAPPER */
+(function(){
+  var base=window.sound;
+  if(typeof base!=='function') return;
+  window.sound=function(kind){
+    try{
+      if(window.GEI_AUDIO_UNLOCK) window.GEI_AUDIO_UNLOCK();
+    }catch(e){}
+    return base(kind);
+  };
 })();

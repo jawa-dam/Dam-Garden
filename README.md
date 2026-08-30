@@ -1,15 +1,11 @@
-# GEI Academy — Mission Audio Bootstrap Fix
+# GEI Mission Audio Fix
 
-The six supplied Level 1–6 pages are preserved and receive one shared audio bootstrap.
+The six supplied Level 1–6 pages are preserved. A shared Web Audio bootstrap is added so
+the browser's AudioContext is explicitly resumed from the first real user gesture.
 
-The shared `js/gei-game-audio.js` now exposes `GEI_AUDIO_UNLOCK()`.
-The level pages call it from the first real user gesture, before mission click handlers.
+Mission audio path:
+answer tap → click → correct/wrong
+next/save → save
+level completion → fanfare
 
-Expected:
-- tap answer → click
-- correct → correct sound
-- wrong → gentle womp
-- next/save → save
-- level completion → ascending fanfare
-
-The dashboard is intentionally not modified.
+The dashboard is not included in this patch.
