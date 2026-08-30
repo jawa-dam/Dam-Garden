@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#071b2c">
+<title>GEI Dam Academy — Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@500;700;800&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<script>window.__YALL_LOGO__='data:image/png;base64,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';</script>
+<style>
+:root,[data-theme="dark"]{
+  --bg:#071b2c;--frame:#0a2338;--panel:#0f2f47;--panel2:#123a57;
+  --ink:#eaf6ff;--muted:#7fa7c7;
+  --aqua:#22c7e8;--brass:#e8a33d;--brass-dim:#5a4423;
+  --good:#46d19c;--bad:#ff6b6b;
+  --line:rgba(255,255,255,.10);--shadow:rgba(0,0,0,.5);
+  --track:rgba(255,255,255,.08);
+}
+[data-theme="light"]{
+  --bg:#eaf4ff;--frame:#ffffff;--panel:#f3f9ff;--panel2:#e6f1ff;
+  --ink:#10263c;--muted:#5c7995;
+  --aqua:#0891b2;--brass:#c9821a;--brass-dim:#f1dcb2;
+  --good:#1f9e6c;--bad:#e5484d;
+  --line:rgba(14,36,56,.12);--shadow:rgba(20,45,70,.22);
+  --track:rgba(14,36,56,.08);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;overflow:hidden;overscroll-behavior:none;background:var(--bg)}
+body{position:fixed;inset:0;font-family:"Nunito",ui-rounded,system-ui,sans-serif;color:var(--ink);touch-action:pan-x pan-y}
+.dispf{font-family:"Rajdhani","Nunito",sans-serif}
+.monof{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+button{font-family:inherit}
+
+.phoneOuter{
+  height:100%;display:flex;align-items:center;justify-content:center;padding:16px;
+  background:
+    radial-gradient(circle at 15% 8%,color-mix(in srgb,var(--aqua),transparent 84%),transparent 40%),
+    radial-gradient(circle at 90% 88%,color-mix(in srgb,var(--brass),transparent 86%),transparent 38%),
+    var(--bg);
+}
+.appFrame{
+  width:100%;max-width:428px;height:100%;max-height:880px;
+  background:var(--frame);border:1px solid var(--line);border-radius:36px;
+  box-shadow:0 30px 70px var(--shadow), inset 0 0 0 7px rgba(255,255,255,.02);
+  overflow:hidden;display:flex;flex-direction:column;position:relative;
+}
+@media(max-width:480px){
+  .phoneOuter{padding:0}
+  .appFrame{max-height:none;border-radius:0;border:0;box-shadow:none}
+}
+
+/* ---------- topbar ---------- */
+.topbar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;
+  padding:calc(10px + env(safe-area-inset-top)) 14px 10px;border-bottom:1px solid var(--line);background:var(--panel)}
+.brandRow{display:flex;align-items:center;gap:9px;min-width:0}
+.brandRow img{width:30px;height:30px;object-fit:contain;border-radius:8px;background:#fff;flex:0 0 auto}
+.brandText{min-width:0}
+.brandText b{display:block;font-size:.86rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brandText span{display:block;font-size:.53rem;letter-spacing:.14em;color:var(--aqua);font-weight:700}
+#themeBtn{flex:0 0 auto;width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);display:grid;place-items:center;cursor:pointer;font-size:.95rem}
+#themeBtn:active{transform:scale(.94)}
+.topActions{display:flex;gap:6px;align-items:center}.geiAudioToggle,#geiAudioToggle{flex:0 0 auto;width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);display:grid;place-items:center;cursor:pointer;font-size:.95rem}.geiAudioToggle:active,#geiAudioToggle:active{transform:scale(.94)}
+
+/* ---------- screens ---------- */
+.screens{flex:1 1 auto;min-height:0;position:relative}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:14px 16px 10px;min-height:0}
+.screen.active{display:flex}
+.screenHead{flex:0 0 auto;margin-bottom:8px}
+.eyebrow{display:block;font-size:.58rem;letter-spacing:.14em;color:var(--brass);font-weight:700}
+.screenHead h2{margin:2px 0 0;font-size:1.15rem;font-weight:700}
+
+/* ---------- home: setup ---------- */
+.setupBlock{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.mascotRow{display:flex;justify-content:center}
+.mascotRow svg{width:clamp(48px,16dvh,74px);height:auto}
+.speak{margin:0;text-align:center;font-weight:700;color:var(--muted);font-size:.86rem;padding:0 6px}
+.avatarRow{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}
+.avatarBtn{width:38px;height:38px;border-radius:11px;border:2px solid var(--line);background:var(--panel);font-size:1.15rem;cursor:pointer;padding:0}
+.avatarBtn.sel{border-color:var(--aqua);box-shadow:0 0 0 3px color-mix(in srgb,var(--aqua),transparent 78%)}
+.nameRow{display:flex;gap:8px}
+.nameInput{flex:1;min-width:0;padding:11px 12px;border-radius:12px;border:2px solid var(--line);background:var(--panel);color:var(--ink);font:inherit}
+.nameInput:focus{outline:none;border-color:var(--aqua)}
+.hint{margin:0;text-align:center;font-size:.72rem;color:var(--muted)}
+
+/* ---------- home: dashboard ---------- */
+.dashBlock{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px}
+.profileBar{flex:0 0 auto;display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 10px}
+.avatarChip{font-size:1.4rem;width:38px;height:38px;border-radius:11px;background:var(--panel2);display:grid;place-items:center;flex:0 0 auto}
+.profileText{flex:1;min-width:0}
+.profileText b{display:block;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.profileText small{display:block;font-size:.62rem;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.ghostBtn{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:9px;padding:6px 9px;font-size:.72rem;font-weight:700;cursor:pointer}
+
+.gaugeWrap{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.gauge{width:clamp(126px,32dvh,196px);height:clamp(126px,32dvh,196px)}
+.gaugeTrack{fill:none;stroke:var(--track);stroke-width:9}
+.gaugeFillC{fill:none;stroke:url(#gaugeGrad);stroke-width:9;stroke-linecap:round;transform-origin:70px 70px;transform:rotate(-90deg);transition:stroke-dashoffset .7s cubic-bezier(.2,.8,.2,1)}
+.rivet{fill:var(--brass-dim)}
+.gaugeLevelNum{font-family:"Rajdhani",sans-serif;font-weight:700;fill:var(--ink)}
+.gaugeLevelLbl{font-family:"IBM Plex Mono",monospace;font-weight:700;letter-spacing:.16em;fill:var(--muted)}
+.readouts{display:flex;gap:8px}
+.readout{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:7px 12px;text-align:center;min-width:78px}
+.readout .tag{display:block;font-size:.55rem;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.readout b{display:block;font-size:1.05rem;font-family:"Rajdhani",sans-serif}
+
+.statusLine{flex:0 0 auto;margin:0;text-align:center;font-size:.76rem;color:var(--muted);font-weight:700;padding:0 4px}
+
+.btnPrimary{flex:0 0 auto;display:block;text-align:center;text-decoration:none;cursor:pointer;border:0;
+  font-family:"Rajdhani",sans-serif;font-weight:700;font-size:.98rem;letter-spacing:.02em;color:#08202f;
+  background:linear-gradient(90deg,var(--aqua),var(--brass));border-radius:14px;padding:12px 14px;
+  box-shadow:0 5px 0 rgba(0,0,0,.2)}
+.btnPrimary:active{transform:translateY(2px);box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.btnPrimary.disabled{opacity:.5;filter:saturate(.4);pointer-events:none}
+
+/* ---------- missions ---------- */
+.gateList{flex:1;min-height:0;display:grid;grid-template-rows:repeat(6,1fr);gap:7px}
+.gateRow{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:0 12px;text-decoration:none;color:var(--ink);min-height:0;overflow:hidden}
+.gateDot{flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:var(--panel2);border:2px solid var(--line);
+  display:grid;place-items:center;font-family:"Rajdhani",sans-serif;font-weight:700;font-size:.85rem}
+.gateBody{flex:1;min-width:0}
+.gateBody b{display:block;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gateBody small{display:block;font-size:.65rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gateTag{flex:0 0 auto;font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:.6rem;border:1px solid var(--line);
+  border-radius:999px;padding:4px 8px;color:var(--muted);white-space:nowrap}
+.gateRow.current .gateDot{border-color:var(--aqua);color:var(--aqua)}
+.gateRow.current .gateTag{background:linear-gradient(90deg,var(--aqua),var(--brass));color:#08202f;border-color:transparent}
+.gateRow.ready .gateDot{border-color:var(--brass);color:var(--brass)}
+.gateRow.ready .gateTag{color:var(--brass);border-color:var(--brass)}
+.gateRow.complete .gateDot{border-color:var(--good);color:var(--good)}
+.gateRow.complete .gateTag{color:var(--good);border-color:var(--good)}
+.gateRow.complete .gateBody b:before{content:"✓ ";color:var(--good)}
+.gateRow.locked{opacity:.5}
+.footNote{flex:0 0 auto;margin:7px 0 0;text-align:center;font-size:.62rem;color:var(--muted)}
+
+/* ---------- vault ---------- */
+.vaultLocked{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;text-align:center;
+  border:1.5px dashed var(--line);border-radius:16px;padding:16px;color:var(--muted);font-size:.85rem;font-weight:700}
+.vaultRewards{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px}
+.rewardCard{flex:1;display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);
+  border-radius:16px;padding:0 14px;cursor:pointer;text-align:left;color:var(--ink);position:relative;overflow:hidden}
+.rewardCard:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--aqua),var(--brass))}
+.rewardIcon{font-size:1.7rem;flex:0 0 auto}
+.rewardText b{display:block;font-size:.9rem}
+.rewardText small{display:block;font-size:.7rem;color:var(--muted);margin-top:2px}
+.rewardBadge{margin-left:auto;flex:0 0 auto;font-family:"IBM Plex Mono",monospace;font-size:.55rem;font-weight:700;
+  letter-spacing:.08em;color:var(--good);border:1px solid var(--good);border-radius:999px;padding:4px 7px}
+
+/* ---------- tabbar ---------- */
+.tabbar{flex:0 0 auto;display:flex;border-top:1px solid var(--line);background:var(--panel);
+  padding-bottom:env(safe-area-inset-bottom)}
+.tabBtn{flex:1;background:transparent;border:0;display:flex;flex-direction:column;align-items:center;
+  gap:3px;padding:9px 0 8px;color:var(--muted);cursor:pointer;position:relative}
+.tabBtn svg{width:20px;height:20px}
+.tabBtn span{font-family:"IBM Plex Mono",monospace;font-size:.56rem;letter-spacing:.06em;font-weight:700}
+.tabBtn.active{color:var(--aqua)}
+.tabBtn.active:before{content:"";position:absolute;top:2px;left:50%;transform:translateX(-50%);
+  width:16px;height:3px;border-radius:99px;background:var(--aqua)}
+.tabPip{position:absolute;top:5px;right:calc(50% - 20px);width:8px;height:8px;border-radius:50%;background:var(--good);
+  box-shadow:0 0 0 2px var(--panel)}
+
+/* ---------- modal ---------- */
+.modalOverlay{position:fixed;inset:0;z-index:999;background:rgba(4,10,20,.82);display:flex;align-items:center;
+  justify-content:center;padding:16px}
+.modalBox{width:min(420px,100%);max-height:88dvh;overflow:auto;background:var(--frame);color:var(--ink);
+  border-radius:22px;padding:16px;position:relative;border:1px solid var(--line);box-shadow:0 20px 60px var(--shadow)}
+.modalClose{position:absolute;right:10px;top:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);
+  border-radius:999px;width:30px;height:30px;font-weight:700;cursor:pointer}
+.certPaper{margin-top:24px;text-align:center;border:5px double var(--brass);border-radius:16px;padding:24px 14px;
+  background:linear-gradient(150deg,color-mix(in srgb,var(--aqua),transparent 92%),color-mix(in srgb,var(--brass),transparent 92%))}
+.certPaper .seal{font-size:2.4rem}
+.certPaper h3{font-family:"Rajdhani",sans-serif;font-size:1.3rem;margin:8px 0 4px}
+.certPaper .certName{font-family:"Rajdhani",sans-serif;font-size:1.7rem;font-weight:700;color:var(--brass);margin:8px 0}
+.certPaper p{margin:5px 0;font-size:.82rem;color:var(--muted)}
+.certStats{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:12px 0}
+.certStats span{font-family:"IBM Plex Mono",monospace;font-size:.6rem;font-weight:700;border:1px solid var(--line);
+  border-radius:999px;padding:5px 8px;color:var(--muted)}
+.modalActions{display:flex;gap:8px;margin-top:14px}
+.modalActions .btnPrimary{flex:1}
+.videoStage{margin-top:18px;border-radius:16px;overflow:hidden;background:#000}
+.videoStage iframe{display:block;width:100%;height:min(60dvh,420px);border:0}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+  <script src="js/gei-game-audio.js"></script>
+  </head>
+<body>
+<div class="phoneOuter">
+<div class="appFrame" id="appFrame">
+
+  <header class="topbar">
+    <div class="brandRow">
+      <img src="https://assets.zyrosite.com/YZ9jg46Bljs5wOZR/yall-too-logo-vq2GKHxbTzr7g8bO.png" alt="YallToo — GEI Academy" onerror="this.onerror=null;this.src=window.__YALL_LOGO__">
+      <div class="brandText"><b class="dispf">GEI Dam Academy</b><span class="monof">CONTROL ROOM</span></div>
+    </div>
+    <div class="topActions"><button id="geiAudioToggle" type="button" data-gei-audio-toggle aria-label="Sound on" aria-pressed="true">🔊</button><button id="themeBtn" type="button" aria-label="Toggle light and dark mode">🌙</button></div>
+  </header>
+
+  <main class="screens">
+
+    <!-- HOME -->
+    <section class="screen active" data-screen="home">
+      <div class="setupBlock" id="setupBlock">
+        <div class="mascotRow">
+          <svg viewBox="0 0 120 132" role="img" aria-label="Splash the water drop, your academy guide">
+            <defs><linearGradient id="dropG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fc4ff"/><stop offset="1" stop-color="#3d8ef7"/></linearGradient></defs>
+            <path d="M60 14 C60 14 20 62 20 90 a40 40 0 0 0 80 0 C100 62 60 14 60 14 Z" fill="url(#dropG)"/>
+            <path d="M34 40 a26 20 0 0 1 52 0 l0 4 -52 0 Z" fill="#ffc247"/>
+            <rect x="28" y="42" width="64" height="8" rx="4" fill="#f5a623"/>
+            <rect x="52" y="18" width="16" height="10" rx="5" fill="#f5a623"/>
+            <circle cx="48" cy="72" r="7" fill="#17233d"/><circle cx="50.5" cy="69.5" r="2.4" fill="#fff"/>
+            <circle cx="74" cy="72" r="7" fill="#17233d"/><circle cx="76.5" cy="69.5" r="2.4" fill="#fff"/>
+            <path d="M52 84 q9 9 18 0" fill="none" stroke="#17233d" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="speak" id="mascotSay">Hi there! 👋 I'm Splash — let's build a dam, one day at a time.</p>
+        <div class="avatarRow" id="avatarRow" role="group" aria-label="Pick your avatar"></div>
+        <div class="nameRow">
+          <input class="nameInput" id="name" maxlength="24" autocomplete="nickname" placeholder="Choose your explorer name" aria-label="Student username">
+          <button class="btnPrimary" id="saveName" type="button" style="padding:0 16px">💾</button>
+        </div>
+        <p class="hint" id="hello">Pick an avatar and save a username to start the Academy.</p>
+      </div>
+
+      <div class="dashBlock" id="dashBlock" hidden>
+        <div class="profileBar">
+          <span class="avatarChip" id="profAvatar">🌟</span>
+          <div class="profileText"><b id="profName">Explorer</b><small id="profMeta">LEVEL 1 · 0 XP</small></div>
+          <button class="ghostBtn" id="editProfile" type="button">Edit</button>
+        </div>
+
+        <div class="gaugeWrap">
+          <svg class="gauge" viewBox="0 0 140 140" role="img" aria-label="Build progress gauge">
+            <defs><linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="var(--aqua)"/><stop offset="1" stop-color="var(--brass)"/>
+            </linearGradient></defs>
+            <g id="rivets"></g>
+            <circle class="gaugeTrack" cx="70" cy="70" r="54"/>
+            <circle class="gaugeFillC" id="gaugeFillC" cx="70" cy="70" r="54" stroke-dasharray="339.29" stroke-dashoffset="339.29"/>
+            <text class="gaugeLevelNum" id="gaugeLevelNum" x="70" y="78" text-anchor="middle" font-size="34">1</text>
+            <text class="gaugeLevelLbl" x="70" y="95" text-anchor="middle" font-size="9">LEVEL</text>
+          </svg>
+          <div class="readouts">
+            <div class="readout"><span class="tag">XP</span><b id="xpVal">0</b></div>
+            <div class="readout"><span class="tag">DAYS</span><b id="daysVal">0/6</b></div>
+          </div>
+        </div>
+
+        <p class="statusLine" id="status">Your next step will appear here.</p>
+        <a class="btnPrimary" id="ctaBtn" href="level1.html?v=20260827-flow">🚀 Start Level 1</a>
+      </div>
+    </section>
+
+    <!-- MISSIONS -->
+    <section class="screen" data-screen="missions">
+      <div class="screenHead"><span class="eyebrow monof">SIX-DAY BUILD</span><h2 class="dispf">Open the Gates</h2></div>
+      <div class="gateList" id="gateList"></div>
+      <p class="footNote">Missions 07–38 unlock after the six-day foundation is complete.</p>
+    </section>
+
+    <!-- VAULT -->
+    <section class="screen" data-screen="vault">
+      <div class="screenHead"><span class="eyebrow monof">MASTER BUILDER REWARDS</span><h2 class="dispf">A'Dam Vault</h2></div>
+      <div class="vaultLocked" id="vaultLocked">🔒 Complete all six foundation levels to unlock your certificate and A'Dam Video Vault.</div>
+      <div class="vaultRewards" id="vaultRewards" hidden>
+        <button class="rewardCard" id="openCertBtn" type="button">
+          <span class="rewardIcon">🎓</span>
+          <div class="rewardText"><b>Official Certificate</b><small>Tap to view &amp; save</small></div>
+          <span class="rewardBadge monof">✓ DONE</span>
+        </button>
+        <button class="rewardCard" id="openVaultBtn" type="button">
+          <span class="rewardIcon">🎬</span>
+          <div class="rewardText"><b>A'Dam Video Vault</b><small>Exclusive unlocked video</small></div>
+          <span class="rewardBadge monof">✓ DONE</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="tabbar" id="tabbar">
+    <button class="tabBtn active" data-tab="home" type="button" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9h5v-5h2v5h5v-9"/></svg>
+      <span>HOME</span>
+    </button>
+    <button class="tabBtn" data-tab="missions" type="button" aria-label="Missions">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h.01M4 12h.01M4 18h.01"/><path d="M8 6h12M8 12h12M8 18h12"/></svg>
+      <span>MISSIONS</span>
+    </button>
+    <button class="tabBtn" data-tab="vault" type="button" aria-label="Vault">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 6H4a3 3 0 0 0 3 3M17 6h3a3 3 0 0 1-3 3"/></svg>
+      <span>VAULT</span>
+      <span class="tabPip" id="vaultPip" hidden></span>
+    </button>
+  </nav>
+
+</div>
+</div>
+
+<script>
+(function(){'use strict';
+var store=null;try{store=window.localStorage}catch(e){}
+var KEY='gei-academy-state-v1';
+var DEFAULTS={name:'',xp:0,completed:[],avatar:'',theme:'dark',level1Tasks:[],level2Tasks:[],level3Tasks:[],level4Tasks:[],level5Tasks:[]};
+function readState(){
+  var d={};for(var k in DEFAULTS){d[k]=Array.isArray(DEFAULTS[k])?DEFAULTS[k].slice():DEFAULTS[k]}
+  try{var raw=store&&store.getItem(KEY);if(raw){var o=JSON.parse(raw);for(var k2 in d){if(o&&typeof o[k2]!=='undefined')d[k2]=o[k2]}}}catch(e){}
+  if(!Array.isArray(d.completed))d.completed=[];
+  d.xp=Number(d.xp||0);
+  return d;
+}
+function writeState(s){try{store&&store.setItem(KEY,JSON.stringify(s))}catch(e){}}
+
+var AVATARS=['🦊','🐼','🐸','🦄','🚀','🐢','⚡','🌟'];
+var LEVELS=[
+ {n:1,title:'Genesis / Light',desc:'Words, light &amp; dark.',href:'level1.html?v=20260827-flow'},
+ {n:2,title:'Dam / Firmament',desc:'The first dam idea.',href:'level2.html'},
+ {n:3,title:'Reservoir',desc:'Water, land, holding it in.',href:'level3.html'},
+ {n:4,title:'Operations',desc:'Gates, release, flow.',href:'level4.html'},
+ {n:5,title:'The Mill',desc:'Water power turns the mill.',href:'level5.html'},
+ {n:6,title:'The System',desc:'Connect the whole system.',href:'level6.html'}
+];
+var VIDEO='FetuY7WFS3M';
+
+var state=readState();
+if(!state.avatar)state.avatar=AVATARS[0];
+
+/* ---- sound + confetti ---- */
+var ctx=null;
+function ac(){try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx}catch(e){return null}}
+function tone(f,dur,type,vol,when){var c=ac();if(!c)return;try{var t=c.currentTime+(when||0);var o=c.createOscillator(),g=c.createGain();o.type=type||'square';o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.12,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g).connect(c.destination);o.start(t);o.stop(t+dur+.05)}catch(e){}}
+function sound(k){if(k==='save'){tone(520,.12,'triangle',.14);tone(780,.16,'triangle',.12,.09)}else if(k==='level'){[523,659,784,1047].forEach(function(f,i){tone(f,.16,'square',.10,i*.11)})}else if(k==='click'){tone(440,.06,'triangle',.05)}else if(k==='wrong'){tone(220,.2,'sawtooth',.07)}}
+function confetti(n){var cv=document.createElement('canvas');cv.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:1001';cv.width=innerWidth;cv.height=innerHeight;document.body.appendChild(cv);
+ var x=cv.getContext('2d'),cols=['#22c7e8','#e8a33d','#46d19c','#ff9ec7','#7fc4ff'],ps=[];
+ for(var i=0;i<n;i++)ps.push({x:Math.random()*cv.width,y:cv.height*.32,vx:(Math.random()-.5)*7,vy:-8-Math.random()*5,s:5+Math.random()*7,r:Math.random()*6.28,vr:(Math.random()-.5)*.3,c:cols[i%cols.length],life:0});
+ (function loop(){x.clearRect(0,0,cv.width,cv.height);ps.forEach(function(p){p.life++;p.x+=p.vx;p.y+=p.vy;p.vy+=.25;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.62);x.restore()});
+  ps=ps.filter(function(p){return p.y<cv.height+30&&p.life<220});
+  if(ps.length)requestAnimationFrame(loop);else cv.remove()})();
+}
+
+var $=function(id){return document.getElementById(id)};
+var els={name:$('name'),save:$('saveName'),hello:$('hello'),avatarRow:$('avatarRow'),setupBlock:$('setupBlock'),
+ dashBlock:$('dashBlock'),profAvatar:$('profAvatar'),profName:$('profName'),profMeta:$('profMeta'),edit:$('editProfile'),
+ xpVal:$('xpVal'),daysVal:$('daysVal'),status:$('status'),ctaBtn:$('ctaBtn'),mascotSay:$('mascotSay'),
+ gateList:$('gateList'),theme:$('themeBtn'),rivets:$('rivets'),gaugeFillC:$('gaugeFillC'),gaugeLevelNum:$('gaugeLevelNum'),
+ vaultLocked:$('vaultLocked'),vaultRewards:$('vaultRewards'),vaultPip:$('vaultPip'),
+ tabbar:$('tabbar'),screens:document.querySelectorAll('.screen')};
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})}
+
+/* rivets around the gauge rim */
+(function buildRivets(){
+  var html='';for(var i=0;i<12;i++){var a=(i/12)*2*Math.PI;var cx=70+64*Math.cos(a),cy=70+64*Math.sin(a);html+='<circle class="rivet" cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.1"/>'}
+  els.rivets.innerHTML=html;
+})();
+
+function buildAvatars(){
+  els.avatarRow.innerHTML=AVATARS.map(function(a){return '<button type="button" class="avatarBtn'+(a===state.avatar?' sel':'')+'" data-a="'+a+'" aria-label="Pick avatar '+a+'">'+a+'</button>'}).join('');
+  els.avatarRow.querySelectorAll('.avatarBtn').forEach(function(b){b.addEventListener('click',function(){state=readState();state.avatar=b.getAttribute('data-a');writeState(state);buildAvatars();sound('click')})});
+}
+function buildGates(){
+  els.gateList.innerHTML=LEVELS.map(function(lv){
+    return '<a class="gateRow" data-n="'+lv.n+'" href="'+lv.href+'"><span class="gateDot">'+lv.n+'</span>'+
+      '<span class="gateBody"><b>'+esc(lv.title)+'</b><small>'+lv.desc+'</small></span>'+
+      '<span class="gateTag monof" data-tag="'+lv.n+'">🔒</span></a>';
+  }).join('');
+}
+buildAvatars();buildGates();
+
+var C=339.29;
+function render(){
+  state=readState();if(!state.avatar)state.avatar=AVATARS[0];
+  document.documentElement.setAttribute('data-theme',state.theme==='light'?'light':'dark');
+  els.theme.textContent=state.theme==='light'?'☀️':'🌙';
+
+  var hasName=!!state.name;
+  var done=state.completed;
+  var c=Math.max(0,done.length);
+  var lvl=Math.min(6,Math.max(1,c+1));
+  var academyComplete=c>=6;
+
+  els.name.value=state.name||'';
+  els.setupBlock.style.display=hasName?'none':'flex';
+  els.dashBlock.hidden=!hasName;
+  if(hasName){
+    els.profAvatar.textContent=state.avatar;
+    els.profName.textContent=state.name;
+    els.profMeta.textContent='LEVEL '+lvl+' · '+Number(state.xp||0)+' XP';
+  }
+
+  els.xpVal.textContent=String(Number(state.xp||0));
+  els.daysVal.textContent=c+'/6';
+  els.gaugeLevelNum.textContent=String(lvl);
+  var frac=c/6;
+  els.gaugeFillC.setAttribute('stroke-dashoffset',String(C*(1-frac)));
+
+  els.status.textContent=!hasName?'🔐 Save a username to unlock your first mission.':
+    (c===0?('🚀 Your first mission is Level 1, '+state.name+'.'):
+    (c<6?('🎉 Day '+c+' complete! Day '+(c+1)+' is next.'):'🏆 Six-day foundation complete!'));
+
+  var nm=state.name;
+  if(!hasName)els.mascotSay.textContent='Pick an avatar and save your name — then our adventure begins!';
+  else if(c===0)els.mascotSay.innerHTML='Let\u2019s go, <strong>'+esc(nm)+'</strong>! Day 1 is ready.';
+  else if(c<6)els.mascotSay.innerHTML='Day '+c+' built, <strong>'+esc(nm)+'</strong>! On to Day '+(c+1)+'.';
+  else els.mascotSay.innerHTML='WOW, <strong>'+esc(nm)+'</strong>! All six days built — Academy Master! 🏆';
+
+  var next=LEVELS[Math.min(5,c)];
+  els.ctaBtn.classList.toggle('disabled',!hasName);
+  els.ctaBtn.setAttribute('aria-disabled',String(!hasName));
+  if(academyComplete){els.ctaBtn.href='#vault';els.ctaBtn.textContent='🏆 Open Rewards Vault'}
+  else{els.ctaBtn.href=next.href;els.ctaBtn.textContent=c===0?'🚀 Start Level 1':'🚀 Continue to Level '+next.n}
+
+  els.gateList.querySelectorAll('.gateRow').forEach(function(g){
+    var n=Number(g.getAttribute('data-n'));
+    var tag=g.querySelector('.gateTag');
+    var isDone=done.indexOf(n)!==-1;
+    var isReady=n===1?true:done.indexOf(n-1)!==-1;
+    g.classList.remove('complete','current','ready','locked');
+    if(isDone){g.classList.add('complete');tag.textContent='✓ DONE'}
+    else if(n===1||isReady){g.classList.add(n===1&&c===0?'current':'ready');tag.textContent=(n===1&&c===0)?'▶ PLAY':'🔓 READY'}
+    else{g.classList.add('locked');tag.textContent='🔒'}
+    g.onclick=function(e){
+      state=readState();
+      var unlocked=n===1||state.completed.indexOf(n-1)!==-1;
+      if(!unlocked){e.preventDefault();sound('wrong');els.status.textContent='🔒 Finish Level '+(n-1)+' to unlock Day '+n+'.';showScreen('missions');return}
+      sound('level');
+    };
+  });
+
+  els.vaultLocked.hidden=academyComplete;
+  els.vaultRewards.hidden=!academyComplete;
+  els.vaultPip.hidden=!academyComplete;
+}
+
+/* ---- tabs ---- */
+function showScreen(name){
+  els.screens.forEach(function(s){s.classList.toggle('active',s.getAttribute('data-screen')===name)});
+  els.tabbar.querySelectorAll('.tabBtn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===name)});
+}
+els.tabbar.addEventListener('click',function(e){
+  var b=e.target.closest('.tabBtn');if(!b)return;
+  sound('click');showScreen(b.getAttribute('data-tab'));
+});
+
+/* ---- setup form ---- */
+els.save.addEventListener('click',function(){
+  var n=els.name.value.trim();
+  if(!n){els.hello.textContent='Please choose a username first.';els.name.focus();return}
+  state=readState();state.name=n;state.avatar=state.avatar||AVATARS[0];writeState(state);
+  sound('save');confetti(90);render();
+});
+els.name.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();els.save.click()}});
+els.edit.addEventListener('click',function(){els.setupBlock.style.display='flex';els.dashBlock.hidden=true;setTimeout(function(){els.name.focus()},80)});
+
+els.ctaBtn.addEventListener('click',function(e){
+  state=readState();
+  if(!state.name){e.preventDefault();sound('wrong');els.hello.textContent='🔐 Please save your username before starting.';els.setupBlock.style.display='flex';els.dashBlock.hidden=true;els.name.focus();return}
+  if(state.completed.length>=6){e.preventDefault();sound('level');showScreen('vault');return}
+  sound('level');
+});
+
+/* ---- theme ---- */
+els.theme.addEventListener('click',function(){state=readState();state.theme=state.theme==='light'?'dark':'light';writeState(state);render()});
+
+/* ---- modals: certificate + video vault ---- */
+function closeModal(m){if(m&&m.parentNode)m.parentNode.removeChild(m)}
+function makeModal(inner){
+  var m=document.createElement('div');m.className='modalOverlay';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');
+  m.innerHTML='<div class="modalBox"><button type="button" class="modalClose" aria-label="Close">✕</button>'+inner+'</div>';
+  document.body.appendChild(m);
+  m.querySelector('.modalClose').addEventListener('click',function(){closeModal(m)});
+  m.addEventListener('click',function(e){if(e.target===m)closeModal(m)});
+  document.addEventListener('keydown',function esck(e){if(e.key==='Escape'){closeModal(m);document.removeEventListener('keydown',esck)}});
+  return m;
+}
+function openCertificate(){
+  state=readState();if(state.completed.length<6)return;
+  var name=esc(state.name||'Explorer'),d=new Date().toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'});
+  var m=makeModal(
+    '<div class="certPaper">'+
+      '<div class="seal">🏆</div>'+
+      '<div class="monof" style="font-size:.62rem;letter-spacing:.14em;color:var(--brass)">YALL TOO · GEI ACADEMY</div>'+
+      '<h3 class="dispf">Certificate of Completion</h3>'+
+      '<p>This certifies that</p>'+
+      '<div class="certName">'+name+'</div>'+
+      '<p>has completed the<br><strong>Six-Day GEI Foundation Academy.</strong></p>'+
+      '<div class="certStats"><span>⭐ '+Number(state.xp||0)+' XP</span><span>🏆 MASTER BUILDER</span><span>📅 '+d+'</span></div>'+
+    '</div>'+
+    '<div class="modalActions"><button type="button" class="btnPrimary" id="printCert">⬇️ Save Certificate</button></div>'
+  );
+  m.querySelector('#printCert').addEventListener('click',function(){window.print()});
+}
+function openVault(){
+  state=readState();if(state.completed.length<6)return;
+  makeModal(
+    '<div style="text-align:center;padding-top:6px">'+
+      '<div style="font-size:2rem">🎬</div>'+
+      '<div class="monof" style="font-size:.6rem;letter-spacing:.14em;color:var(--brass)">A\'DAM VIDEO VAULT</div>'+
+      '<h3 class="dispf" style="margin:6px 0">Welcome, Master Builder.</h3>'+
+      '<p style="color:var(--muted);font-size:.8rem;margin:0 0 4px">Your exclusive GEI video is unlocked.</p>'+
+    '</div>'+
+    '<div class="videoStage"><iframe src="https://www.youtube.com/embed/'+VIDEO+'?playsinline=1" title="A\'Dam Video Vault" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>'
+  );
+}
+$('openCertBtn').addEventListener('click',function(){sound('click');openCertificate()});
+$('openVaultBtn').addEventListener('click',function(){sound('click');openVault()});
+
+window.addEventListener('storage',function(e){if(e.key===KEY)render()});
+window.addEventListener('pageshow',render);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')render()});
+
+render();
+})();
+</script>
+</body>
+</html>

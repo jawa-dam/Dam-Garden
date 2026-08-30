@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#071b2c">
+<title>GEI Dam Academy — Level 6 · THE SYSTEM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@500;700;800&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="dark"]{--bg:#071b2c;--frame:#0a2338;--panel:#0f2f47;--panel2:#123a57;--ink:#eaf6ff;--muted:#7fa7c7;--aqua:#22c7e8;--brass:#e8a33d;--good:#46d19c;--bad:#ff6b6b;--line:rgba(255,255,255,.10);--track:rgba(255,255,255,.08)}
+[data-theme="light"]{--bg:#eaf4ff;--frame:#fff;--panel:#f3f9ff;--panel2:#e6f1ff;--ink:#10263c;--muted:#5c7995;--aqua:#0891b2;--brass:#c9821a;--good:#1f9e6c;--bad:#e5484d;--line:rgba(14,36,56,.12);--track:rgba(14,36,56,.08)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--bg)}
+body{position:fixed;inset:0;font-family:"Nunito",system-ui,sans-serif;color:var(--ink)}
+button{font:inherit}a{color:inherit;text-decoration:none}.dispf{font-family:"Rajdhani","Nunito",sans-serif}.monof{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.phoneOuter{height:100dvh;display:flex;justify-content:center;align-items:center;background:var(--bg)}
+.appFrame{width:100%;max-width:428px;height:100dvh;background:var(--frame);overflow:hidden;display:flex;flex-direction:column}
+.topbar{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:calc(6px + env(safe-area-inset-top)) 12px 6px;border-bottom:1px solid var(--line);background:var(--panel)}
+.brandRow{display:flex;align-items:center;gap:8px}.brandRow img{width:25px;height:25px;object-fit:contain;border-radius:7px;background:#fff}.brandText b{display:block;font-size:.82rem}.brandText span{display:block;font-size:.5rem;letter-spacing:.14em;color:var(--aqua);font-weight:700}
+.themeBtn{width:32px;height:32px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--ink)}
+.levelScroll{flex:1 1 auto;min-height:0;overflow:hidden;padding:7px 10px;display:flex;flex-direction:column;gap:6px}
+.screenHead{flex:0 0 auto}.eyebrow{font-size:.55rem;letter-spacing:.13em;color:var(--brass);font-weight:700}.screenHead h2{margin:1px 0 0;font-size:1rem}.screenHead p{margin:1px 0 0;font-size:.63rem;line-height:1.22;color:var(--muted);font-weight:700}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:9px;flex:0 0 auto}
+.progTop{display:flex;align-items:center;gap:8px}.avatarChip{width:34px;height:34px;border-radius:10px;background:var(--panel2);display:grid;place-items:center;font-size:1.15rem}.progText{flex:1;min-width:0}.progText b{display:block;font-size:.8rem}.progText small{display:block;font-size:.54rem;color:var(--muted);letter-spacing:.06em}.chipDone{color:var(--good);border:1px solid var(--good);border-radius:999px;padding:4px 7px;font-size:.5rem;font-weight:800}
+.dayTrack{display:flex;gap:4px;margin-top:6px}.dayDot{flex:1;height:5px;border-radius:99px;background:var(--track)}.dayDot.done{background:var(--good)}.dayDot.cur{background:linear-gradient(90deg,var(--aqua),var(--brass))}
+.track{height:7px;background:var(--track);border-radius:99px;overflow:hidden;margin-top:6px}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--brass));border-radius:99px}.readouts{display:flex;gap:6px;margin-top:6px}.readout{flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:3px;text-align:center}.readout .tag{display:block;font-size:.48rem;color:var(--muted);font-weight:800}.readout b{font-family:"Rajdhani";font-size:.88rem}
+.mission{display:none;flex-direction:column}.mission.active{display:flex}.missionHead{display:flex;justify-content:space-between;align-items:center;gap:6px}.mState{color:var(--aqua);border:1px solid var(--aqua);border-radius:999px;padding:3px 6px;font-size:.5rem;font-weight:800}.mState.done{color:var(--good);border-color:var(--good)}.mTitle{margin:5px 0 0;font-size:.98rem}.lesson{margin:4px 0 0;font-size:.76rem;line-height:1.24;color:var(--muted);font-weight:700}.question{margin:7px 0 5px;font-size:.86rem;line-height:1.22;font-weight:900}.answers{display:flex;flex-direction:column;gap:4px}.answerBtn{width:100%;display:flex;align-items:center;gap:7px;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:5px 7px;color:var(--ink);font-size:.76rem;font-weight:800}.aKey{width:21px;height:21px;flex:0 0 auto;border-radius:6px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);font-size:.5rem}.answerBtn.ok{border-color:var(--good);background:color-mix(in srgb,var(--good),transparent 87%)}.answerBtn.ok .aKey{background:var(--good);color:#06281a}.answerBtn.bad{border-color:var(--bad)}.answerBtn.off{opacity:.4}.fb{min-height:1em;margin:5px 0 0;font-size:.70rem;line-height:1.22;font-weight:900}.fb.good{color:var(--good)}.fb.bad{color:var(--bad)}.nextBtn{width:100%;margin-top:5px;border:0;border-radius:10px;padding:6px 8px;background:linear-gradient(90deg,var(--aqua),var(--brass));color:#08202f;font-family:"Rajdhani";font-weight:800;font-size:.78rem}.nextBtn:disabled{opacity:.35}
+.completeCard{display:none;text-align:center}.completeCard h3{margin:3px 0;font-size:.98rem}.completeCard p{margin:3px 0;font-size:.62rem;color:var(--muted);font-weight:700}.completeStats{display:flex;justify-content:center;gap:5px;margin:5px 0}.completeStats span{font-size:.5rem;border:1px solid var(--line);border-radius:999px;padding:3px 6px;color:var(--muted)}.btnRow{display:flex;gap:5px}.btnRow>*{flex:1}.btnPrimary,.btnGhost{display:block;text-align:center;border:0;border-radius:10px;padding:6px 7px;font-family:"Rajdhani";font-weight:800;font-size:.65rem}.btnPrimary{background:linear-gradient(90deg,var(--aqua),var(--brass));color:#08202f}.btnGhost{border:1px solid var(--line);color:var(--ink)}
+.tabbar{flex:0 0 auto;display:flex;border-top:1px solid var(--line);background:var(--panel);padding-bottom:env(safe-area-inset-bottom)}.tabBtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0 6px;color:var(--muted)}.tabBtn svg{width:18px;height:18px}.tabBtn span{font-size:.5rem;letter-spacing:.06em;font-weight:800}
+@media(max-height:700px){.readouts{display:none}.levelScroll{gap:5px}.card{padding:8px}.mission .lesson{font-size:.59rem}.question{font-size:.69rem}.answerBtn{padding:4px 6px;font-size:.61rem}.nextBtn{padding:5px 7px}}
+@media(max-height:600px){.screenHead{display:none}.dayTrack{margin-top:4px}.topbar{padding-top:calc(4px + env(safe-area-inset-top));padding-bottom:4px}.tabBtn{padding-top:5px;padding-bottom:4px}}
+</style>
+<script src="js/gei-game-audio.js"></script><script>
+(function(){
+  try{
+    var raw=localStorage.getItem('gei-academy-state-v1');
+    var st=raw?JSON.parse(raw):null;
+    var name=st&&typeof st.name==='string'?st.name.trim():'';
+    if(!name){
+      document.documentElement.style.visibility='hidden';
+      location.replace('index.html?return=level6.html');
+      return;
+    }
+  }catch(e){}
+})();
+</script>
+<style id="gei-readable-type-v3">
+/* Larger adult-readable / kid-friendly game typography — still one frame, no scroll. */
+.screenHead h2{font-size:1.12rem}
+.screenHead p{font-size:.72rem;line-height:1.3}
+.progText b{font-size:.88rem}
+.progText small{font-size:.58rem}
+.mState{font-size:.56rem;padding:4px 7px}
+.mTitle{font-size:1.03rem}
+.lesson{font-size:.81rem;line-height:1.32}
+.question{font-size:.93rem;line-height:1.28}
+.answerBtn{font-size:.84rem;line-height:1.2;padding:7px 9px;gap:8px}
+.aKey{width:23px;height:23px;font-size:.54rem}
+.fb{font-size:.75rem;line-height:1.25}
+.nextBtn{font-size:.82rem;padding:7px 9px}
+.readout .tag{font-size:.52rem}
+.readout b{font-size:.94rem}
+@media(max-height:700px){
+  .screenHead p{display:none}
+  .lesson{font-size:.75rem}
+  .question{font-size:.87rem}
+  .answerBtn{font-size:.78rem;padding:6px 8px}
+  .fb{font-size:.70rem}
+  .nextBtn{font-size:.78rem}
+}
+@media(max-height:600px){
+  .mTitle{font-size:.94rem}
+  .lesson{font-size:.69rem}
+  .question{font-size:.82rem}
+  .answerBtn{font-size:.73rem}
+}
+</style>
+
+<style id="gei-polish-v2">
+.audioBtn{width:32px;height:32px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-size:1rem;display:grid;place-items:center}
+.topActions{display:flex;gap:5px;align-items:center}
+.celebrateBurst{position:fixed;inset:0;pointer-events:none;z-index:30;display:none;overflow:hidden}
+.celebrateBurst.show{display:block}
+.spark{position:absolute;left:50%;top:46%;font-size:1.1rem;animation:geiSpark 850ms ease-out forwards}
+@keyframes geiSpark{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}12%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.2) rotate(180deg)}}
+.badgeReward{display:inline-flex;align-items:center;gap:6px;margin:3px 0;padding:6px 9px;border-radius:999px;background:var(--panel2);border:1px solid var(--brass);color:var(--brass);font-family:"Rajdhani";font-weight:800;font-size:.72rem}
+.completeCard{box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.resetPanel{position:fixed;left:50%;bottom:58px;transform:translateX(-50%);width:min(92vw,390px);z-index:40;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:0 14px 36px rgba(0,0,0,.28);display:none}
+.resetPanel.show{display:block}
+.resetPanel h4{margin:0 0 4px;font-family:"Rajdhani";font-size:.9rem}.resetPanel p{margin:0 0 7px;font-size:.66rem;color:var(--muted);font-weight:700;line-height:1.25}
+.resetActions{display:flex;gap:6px}.resetActions button{flex:1;border-radius:9px;padding:7px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-family:"Rajdhani";font-weight:800}.resetActions .danger{border-color:var(--bad);color:var(--bad)}
+</style>
+</head>
+<body>
+<div class="phoneOuter"><div class="appFrame">
+<header class="topbar"><a class="brandRow" href="index.html"><img src="https://assets.zyrosite.com/YZ9jg46Bljs5wOZR/yall-too-logo-vq2GKHxbTzr7g8b8b-O.png" alt="YallToo"><span class="brandText"><b class="dispf">GEI Dam Academy</b><span class="monof">DAY 6 · THE SYSTEM</span></span></a><div class="topActions"><button class="audioBtn" id="soundBtn" type="button" aria-label="Sound on">🔊</button><button class="themeBtn" id="themeBtn" type="button">🌙</button></div></header><div class="celebrateBurst" id="celebrateBurst" aria-hidden="true"></div>
+<main class="levelScroll" id="scroll">
+<section class="screenHead"><span class="eyebrow monof">LEVEL 6 · THE SYSTEM</span><h2 class="dispf">Complete the System</h2><p>Day six: the complete GEI water-control system works as one.</p></section>
+<section class="card" id="progressCard"><div class="progTop"><span class="avatarChip" id="profAvatar">⚙️</span><div class="progText"><b id="hello">Explorer</b><small class="monof" id="meta">DAY 6 · 0 XP</small></div><span class="chipDone" id="doneChip" hidden>✓ COMPLETE</span></div><div class="dayTrack" id="dayTrack"></div><div class="track"><div class="fill" id="fill"></div></div><div class="readouts"><div class="readout"><span class="tag">XP</span><b id="xpVal">0</b></div><div class="readout"><span class="tag">MISSIONS</span><b id="mVal">0/6</b></div></div></section>
+<div id="missions"></div>
+<section class="card completeCard" id="completeCard"><div class="monof tagLine">DAY 6 COMPLETE · THE SYSTEM</div><h3 class="dispf">Level 6 Complete!</h3><p>Level 6 complete — the GEI build is complete.</p><div class="badgeReward">🏅 GEI Builder Badge Unlocked</div><div class="completeStats"><span>⭐ <b id="xpTotal">0</b> XP</span><span>🗓 <b id="daysTotal">0</b>/6 DAYS</span></div><div class="btnRow"><a class="btnGhost" href="index.html">🏠 Dashboard</a><a class="btnPrimary" href="index.html">Next: Level 1 →</a></div></section>
+<div class="resetPanel" id="resetPanel" aria-hidden="true"><h4>🛠️ Developer Test Tools</h4><p>Reset Academy progress to replay Level 1 → Level 6 from the beginning.</p><div class="resetActions"><button type="button" id="resetCancel">Cancel</button><button type="button" class="danger" id="resetConfirm">Reset Progress</button></div></div></main>
+<nav class="tabbar"><a class="tabBtn" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9h5v-5h2v5h5v-9"/></svg><span>HOME</span></a><a class="tabBtn" href="__PREV__"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg><span>PREV</span></a><a class="tabBtn" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg><span>NEXT</span></a></nav>
+</div></div>
+<script>
+(function(){
+'use strict';
+var KEY='gei-academy-state-v1',N=6,TASK_KEY='level6Tasks',XP_PER=25,XP_FLOOR=900;
+var MISSIONS=[["System Order", "The six levels form one controlled sequence.", "Which order matches the GEI build?", ["Separate → Dam → Reservoir → Operations → Mill → System", "Mill → Reservoir → Dam → Separate → System → Operations", "Reservoir → Mill → Dam → Operations → Separate → System"], "The levels build from separation to the complete system."], ["Source", "The system begins at the source.", "In the GEI model, the source of the water is represented by…", ["The mountain", "The mill wheel", "The downstream field"], "The mountain is the water source."], ["Control", "The dam and gates regulate movement.", "What provides the main control points?", ["The dam and its gates", "The crops", "The valley floor"], "Dam plus gates provide control."], ["Flow", "Controlled release moves water downstream.", "What should controlled flow do?", ["Move where and when the system requires", "Always overflow", "Stop permanently"], "Controlled flow follows the plan."], ["Work", "The mill converts flow into work.", "What is the final productive purpose of the mill?", ["Turn water energy into useful work", "Store water forever", "Remove the dam"], "The mill makes the stored flow productive."], ["Completion", "The complete system links every stage.", "What does completing Level 6 represent?", ["The GEI water-control system working as one", "The reservoir disappearing", "The gates becoming unnecessary"], "The complete build now works as one system."]];
+var store=null;try{store=localStorage}catch(e){}
+function read(){var d={name:'',xp:0,completed:[],avatar:'',theme:'dark',level1Tasks:[],level2Tasks:[],level3Tasks:[],level4Tasks:[],level5Tasks:[],level6Tasks:[]};try{var o=JSON.parse(store.getItem(KEY)||'null');if(o)Object.assign(d,o)}catch(e){}if(!Array.isArray(d.completed))d.completed=[];var a=Array.isArray(d[TASK_KEY])?d[TASK_KEY]:[],out=[],seen={};a.forEach(function(v){var n=Number(v);if(Number.isInteger(n)&&n>=0&&n<6&&!seen[n]){seen[n]=1;out.push(n)}});out.sort(function(a,b){return a-b});d[TASK_KEY]=out;return d}
+function write(s){try{store&&store.setItem(KEY,JSON.stringify(s))}catch(e){}}
+function $(id){return document.getElementById(id)}
+var state=read(),done=state[TASK_KEY].slice(),doneSet={};done.forEach(function(x){doneSet[x]=1});
+var alreadyDone=state.completed.indexOf(N)!==-1,locked=(state.completed.indexOf(N-1)===-1);
+var theme=$('themeBtn');document.documentElement.dataset.theme=state.theme==='light'?'light':'dark';theme.textContent=state.theme==='light'?'☀️':'🌙';
+theme.onclick=function(){state=read();state.theme=state.theme==='light'?'dark':'light';write(state);document.documentElement.dataset.theme=state.theme;this.textContent=state.theme==='light'?'☀️':'🌙'};
+function renderTop(){var nm=state.name||'Explorer';$('profAvatar').textContent=state.avatar||'⚙️';$('hello').textContent=nm;$('meta').textContent='DAY '+N+' · '+Number(state.xp||0)+' XP';$('xpVal').textContent=String(Number(state.xp||0));var c=Math.min(6,done.length);$('mVal').textContent=c+'/6';$('fill').style.width=(c/6*100)+'%';$('doneChip').hidden=!alreadyDone}
+(function(){var h='';for(var i=1;i<=6;i++){var cls='dayDot';if(state.completed.indexOf(i)!==-1)cls+=' done';else if(i===N)cls+=' cur';h+='<a class="'+cls+'" href="level'+i+'.html" aria-label="Go to day '+i+'"></a>'}$('dayTrack').innerHTML=h})();
+function build(){var host=$('missions');host.innerHTML=MISSIONS.map(function(m,i){return '<article class="card mission'+(i===0?' active':'')+'" id="m'+i+'"><div class="missionHead"><span class="eyebrow monof">MISSION '+('0'+(i+1))+' / 06</span><span class="mState" id="st'+i+'">'+(doneSet[i]?'✓ DONE':'▶ NEXT')+'</span></div><h3 class="dispf mTitle">'+m[0]+'</h3><p class="lesson">'+m[1]+'</p><p class="question">'+m[2]+'</p><div class="answers">'+m[3].map(function(o,j){return '<button type="button" class="answerBtn" data-j="'+j+'"><span class="aKey monof">'+String.fromCharCode(65+j)+'</span><span>'+o+'</span></button>'}).join('')+'</div><p class="fb" id="fb'+i+'"></p><button type="button" class="nextBtn" id="n'+i+'" disabled>'+(i===5?'Complete Level 6 🏆':'Next Mission →')+'</button></article>'}).join('');
+host.hidden=false;MISSIONS.forEach(function(m,i){var card=$('m'+i),bs=card.querySelectorAll('.answerBtn'),fb=$('fb'+i),nb=$('n'+i);bs.forEach(function(b){b.onclick=function(){var good=Number(b.dataset.j)===0;bs.forEach(function(x){x.disabled=true;if(x!==b)x.classList.add('off')});if(good){b.classList.add('ok');fb.className='fb good';fb.textContent='✅ Correct! +'+XP_PER+' XP — '+m[4];if(!doneSet[i]){doneSet[i]=1;done.push(i);done.sort(function(a,b){return a-b});state[TASK_KEY]=done.slice();state.xp=Number(state.xp||0)+XP_PER;write(state)}$('st'+i).textContent='✓ DONE';$('st'+i).className='mState done';renderTop();nb.disabled=false}else{b.classList.add('bad');fb.className='fb bad';fb.textContent='❌ Not quite — try again.';setTimeout(function(){bs.forEach(function(x){x.disabled=false;x.classList.remove('bad','off')});fb.textContent=''},650)}}});nb.onclick=function(){if(i===5){if(done.length===6)completeLevel()}else{card.classList.remove('active');$('m'+(i+1)).classList.add('active')}}})}
+function completeLevel(){alreadyDone=true;if(state.completed.indexOf(N)===-1)state.completed.push(N);state.xp=Math.max(Number(state.xp||0),XP_FLOOR);write(state);$('completeCard').style.display='block';$('doneChip').hidden=false;document.querySelectorAll('.mission').forEach(function(x){x.classList.remove('active')});$('missions').hidden=true;renderTop()}
+function start(){if(locked){renderTop();$('missions').hidden=true;return}renderTop();build();if(alreadyDone)completeLevel()}
+start();
+})();
+</script>
+<script>
+(function(){
+  function bindGEI(){
+    document.querySelectorAll('.answerBtn').forEach(function(b){
+      if(b.__geiAudio)return;
+      b.__geiAudio=true;
+      b.addEventListener('click',function(){
+        if(typeof window.sound==='function') window.sound('click');
+        setTimeout(function(){
+          if(typeof window.sound==='function'){
+            if(b.classList.contains('ok')) window.sound('correct');
+            else if(b.classList.contains('bad')) window.sound('wrong');
+          }
+        },25);
+      },true);
+    });
+    document.querySelectorAll('.nextBtn').forEach(function(b){
+      if(b.__geiAudio)return;
+      b.__geiAudio=true;
+      b.addEventListener('click',function(){
+        if(!b.disabled && typeof window.sound==='function') window.sound('save');
+        if(/Complete Level/.test(b.textContent||'') && typeof window.sound==='function'){
+          setTimeout(function(){window.sound('level-complete')},45);
+        }
+      },true);
+    });
+  }
+  bindGEI();
+  new MutationObserver(bindGEI).observe(document.documentElement,{subtree:true,childList:true});
+})();
+</script>
+<script id="gei-polish-engine">
+(function(){
+  'use strict';
+  var SOUND_KEY='gei-academy-sound-enabled-v1', enabled=true;
+  try{var v=localStorage.getItem(SOUND_KEY); if(v!==null) enabled=v!=='0';}catch(e){}
+  var rawSound=window.sound;
+  function play(k){if(enabled&&typeof rawSound==='function'){try{rawSound(k)}catch(e){}}}
+  var sb=document.getElementById('soundBtn');
+  function paint(){if(sb){sb.textContent=enabled?'🔊':'🔇';sb.setAttribute('aria-label',enabled?'Sound on':'Sound off');}}
+  paint();
+  if(sb)sb.onclick=function(){enabled=!enabled;try{localStorage.setItem(SOUND_KEY,enabled?'1':'0')}catch(e){}paint();if(enabled)play('click');};
+
+  function burst(finale){
+    var host=document.getElementById('celebrateBurst'); if(!host)return;
+    host.innerHTML='';
+    var icons=finale?['✨','⭐','💧','🏆','🎉']:['💧','✨','⭐'];
+    for(var i=0;i<(finale?20:8);i++){
+      var x=document.createElement('span'); x.className='spark'; x.textContent=icons[i%icons.length];
+      x.style.setProperty('--x',(Math.random()*280-140)+'px');
+      x.style.setProperty('--y',(Math.random()*220-120)+'px');
+      x.style.animationDelay=(Math.random()*80)+'ms'; host.appendChild(x);
+    }
+    host.classList.add('show'); setTimeout(function(){host.classList.remove('show');host.innerHTML=''},950);
+  }
+
+  // Long-press the level eyebrow to expose the developer reset tool.
+  var trig=document.querySelector('.screenHead .eyebrow'), hold=null;
+  if(trig){
+    trig.addEventListener('touchstart',function(){hold=setTimeout(function(){
+      var panel=document.getElementById('resetPanel');
+      if(panel){panel.classList.add('show');panel.setAttribute('aria-hidden','false');play('click');}
+    },900)},{passive:true});
+    ['touchend','touchcancel','mouseleave'].forEach(function(ev){trig.addEventListener(ev,function(){clearTimeout(hold)})});
+  }
+  var rc=document.getElementById('resetCancel'),rr=document.getElementById('resetConfirm');
+  if(rc)rc.onclick=function(){var p=document.getElementById('resetPanel');p.classList.remove('show');p.setAttribute('aria-hidden','true')};
+  if(rr)rr.onclick=function(){try{localStorage.removeItem('gei-academy-state-v1');localStorage.removeItem(SOUND_KEY)}catch(e){}location.href='index.html'};
+
+  document.addEventListener('click',function(e){
+    var t=e.target;if(!t)return;
+    if(t.classList && t.classList.contains('answerBtn')){
+      setTimeout(function(){
+        if(t.classList.contains('ok')){play('correct');burst(false);}
+        else if(t.classList.contains('bad')){play('wrong');burst(false);}
+      },25);
+    }
+    if(t.classList && t.classList.contains('nextBtn') && /Complete Level/i.test(t.textContent||'')){
+      setTimeout(function(){play('level-complete');burst(true);},40);
+    }
+  },true);
+})();
+</script>
+<script id="gei-certificate-audio-hook">
+(function(){
+  var fired=false;
+  function check(){
+    var c=document.getElementById('completeCard');
+    if(!fired && c && getComputedStyle(c).display!=='none' && typeof window.sound==='function'){
+      fired=true; try{window.sound('certificate')}catch(e){}
+    }
+  }
+  new MutationObserver(check).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['style','class']});
+  setTimeout(check,300);
+})();
+</script></body></html>
