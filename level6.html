@@ -92,6 +92,35 @@ button{font:inherit}a{color:inherit;text-decoration:none}.dispf{font-family:"Raj
 .resetPanel h4{margin:0 0 4px;font-family:"Rajdhani";font-size:.9rem}.resetPanel p{margin:0 0 7px;font-size:.66rem;color:var(--muted);font-weight:700;line-height:1.25}
 .resetActions{display:flex;gap:6px}.resetActions button{flex:1;border-radius:9px;padding:7px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-family:"Rajdhani";font-weight:800}.resetActions .danger{border-color:var(--bad);color:var(--bad)}
 </style>
+
+<script id="gei-audio-bootstrap">
+(function(){
+  'use strict';
+  function boot(){
+    try{
+      if(window.GEI_AUDIO_UNLOCK){
+        window.GEI_AUDIO_UNLOCK();
+      }
+    }catch(e){}
+  }
+
+  /* Capture the very first real interaction before the mission handler. */
+  ['pointerdown','touchstart','mousedown','keydown'].forEach(function(type){
+    document.addEventListener(type,boot,{capture:true,once:true,passive:true});
+  });
+
+  /* Sound button gets an explicit unlock immediately. */
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('soundBtn');
+    if(b){
+      b.addEventListener('pointerdown',boot,{capture:true,passive:true});
+      b.addEventListener('touchstart',boot,{capture:true,passive:true});
+      b.addEventListener('click',boot,{capture:true});
+    }
+  });
+})();
+</script>
+
 </head>
 <body>
 <div class="phoneOuter"><div class="appFrame">
