@@ -32,7 +32,7 @@ button{font:inherit}a{color:inherit;text-decoration:none}.dispf{font-family:"Raj
 @media(max-height:700px){.readouts{display:none}.levelScroll{gap:5px}.card{padding:8px}.mission .lesson{font-size:.59rem}.question{font-size:.69rem}.answerBtn{padding:4px 6px;font-size:.61rem}.nextBtn{padding:5px 7px}}
 @media(max-height:600px){.screenHead{display:none}.dayTrack{margin-top:4px}.topbar{padding-top:calc(4px + env(safe-area-inset-top));padding-bottom:4px}.tabBtn{padding-top:5px;padding-bottom:4px}}
 </style>
-<script src="js/gei-game-audio.js"></script><script>
+<script>
 (function(){
   try{
     var raw=localStorage.getItem('gei-academy-state-v1');
@@ -92,35 +92,19 @@ button{font:inherit}a{color:inherit;text-decoration:none}.dispf{font-family:"Raj
 .resetPanel h4{margin:0 0 4px;font-family:"Rajdhani";font-size:.9rem}.resetPanel p{margin:0 0 7px;font-size:.66rem;color:var(--muted);font-weight:700;line-height:1.25}
 .resetActions{display:flex;gap:6px}.resetActions button{flex:1;border-radius:9px;padding:7px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-family:"Rajdhani";font-weight:800}.resetActions .danger{border-color:var(--bad);color:var(--bad)}
 </style>
+<script src="js/gei-game-audio.js"></script>
 
-<script id="gei-mission-audio-bridge">
+<script id="gei-audio-canonical-bridge">
 (function(){
-  'use strict';
-  function unlock(){try{if(window.GEI_AUDIO_UNLOCK)window.GEI_AUDIO_UNLOCK()}catch(e){}}
-  /* Capture the gesture before the existing click logic. */
-  ['pointerdown','touchstart','mousedown','keydown'].forEach(function(ev){
-    document.addEventListener(ev,unlock,{capture:true,passive:true,once:true});
-  });
-  /* Mission controls: one delegated path for every level. */
-  document.addEventListener('click',function(e){
-    var b=e.target.closest && e.target.closest('.answerBtn,.nextBtn');
-    if(!b || typeof window.sound!=='function') return;
-    unlock();
-    try{
-      if(b.classList.contains('answerBtn')){
-        window.sound('click');
-        setTimeout(function(){
-          if(b.classList.contains('ok')) window.sound('correct');
-          else if(b.classList.contains('bad')) window.sound('wrong');
-        },40);
-      }else if(!b.disabled){
-        window.sound('save');
-        if(/Complete Level/i.test(b.textContent||'')){
-          setTimeout(function(){window.sound('level-complete')},80);
-        }
-      }
-    }catch(_){}
-  },true);
+'use strict';
+function unlock(){
+  try{
+    if(window.GEI_AUDIO_UNLOCK) window.GEI_AUDIO_UNLOCK();
+  }catch(e){}
+}
+['pointerdown','touchstart','mousedown','keydown'].forEach(function(type){
+  document.addEventListener(type,unlock,{capture:true,passive:true,once:true});
+});
 })();
 </script>
 
