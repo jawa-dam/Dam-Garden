@@ -61,7 +61,6 @@ button{font-family:inherit}
 .brandText span{display:block;font-size:.53rem;letter-spacing:.14em;color:var(--aqua);font-weight:700}
 #themeBtn{flex:0 0 auto;width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);display:grid;place-items:center;cursor:pointer;font-size:.95rem}
 #themeBtn:active{transform:scale(.94)}
-.topActions{display:flex;gap:6px;align-items:center}.geiAudioToggle,#geiAudioToggle{flex:0 0 auto;width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);display:grid;place-items:center;cursor:pointer;font-size:.95rem}.geiAudioToggle:active,#geiAudioToggle:active{transform:scale(.94)}
 
 /* ---------- screens ---------- */
 .screens{flex:1 1 auto;min-height:0;position:relative}
@@ -184,8 +183,7 @@ button{font-family:inherit}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-  <script src="js/gei-game-audio.js"></script>
-  </head>
+</head>
 <body>
 <div class="phoneOuter">
 <div class="appFrame" id="appFrame">
@@ -195,7 +193,7 @@ button{font-family:inherit}
       <img src="https://assets.zyrosite.com/YZ9jg46Bljs5wOZR/yall-too-logo-vq2GKHxbTzr7g8bO.png" alt="YallToo — GEI Academy" onerror="this.onerror=null;this.src=window.__YALL_LOGO__">
       <div class="brandText"><b class="dispf">GEI Dam Academy</b><span class="monof">CONTROL ROOM</span></div>
     </div>
-    <div class="topActions"><button id="geiAudioToggle" type="button" data-gei-audio-toggle aria-label="Sound on" aria-pressed="true">🔊</button><button id="themeBtn" type="button" aria-label="Toggle light and dark mode">🌙</button></div>
+    <button id="themeBtn" type="button" aria-label="Toggle light and dark mode">🌙</button>
   </header>
 
   <main class="screens">

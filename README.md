@@ -23,7 +23,7 @@ The level pages use a single-frame mobile presentation with `overflow:hidden` an
 The game uses the shared `js/gei-game-audio.js` Web Audio engine for click, correct, wrong, save, level completion, and certificate/Vault fanfare sounds.
 
 ## Vault
-The Vault is the reward area after the six-day foundation. The current Vault page is included as supplied by the repository build.
+The Vault is the reward area after the six-day foundation.
 
 ## Dashboard audio control
 The experimental dashboard-wide audio toggle is intentionally not included in this clean package.

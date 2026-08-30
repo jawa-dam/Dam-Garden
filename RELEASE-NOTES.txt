@@ -1,17 +1,10 @@
-GEI DAM ACADEMY — CLEAN FINAL MANUAL-UPLOAD PACKAGE
+GEI DAM LEARNING ACADEMY — CLEAN RELEASE CHECKPOINT
 
-Built from the supplied current dashboard and supplied Level 1–6 HTML files.
-
-Included:
-- Original dashboard, preserved as the source layout
-- Level 1–6 pages
-- Shared gameplay audio engine
-- Current A'Dam Vault page
+Source-of-truth inputs:
+- original dashboard supplied by the project owner
+- Level 1–6 files supplied by the project owner
+- shared gameplay audio engine
 - README
-- SHA256SUMS
 
-Excluded:
-- Experimental dashboard audio toggle / loader wiring
-- Injected dashboard Level 6 bridge/card
-
-The dashboard is intentionally kept clean so the Control Room does not display Level 6 content on the home screen.
+Dashboard audio-toggle experiment is excluded.
+No injected Level 6 dashboard card is included.

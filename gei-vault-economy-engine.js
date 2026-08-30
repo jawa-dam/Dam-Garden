@@ -1,0 +1,1 @@
+(function(w){'use strict';var K='gei-academy-state-v1';function s(){try{return JSON.parse(localStorage.getItem(K)||'{}')||{}}catch(e){return {}}}w.GEI_VAULT_ECONOMY={unlocked:function(){return (s().completed||[]).length>=6},xp:function(){return Number(s().xp||0)},status:function(){return this.unlocked()?'MASTER BUILDER':'LOCKED'}};})(window);
