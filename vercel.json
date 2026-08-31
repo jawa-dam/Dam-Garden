@@ -5,5 +5,11 @@
     "api/**/*.js": {
       "runtime": "nodejs22.x"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/paypal/health",
+      "destination": "/api/paypal-health"
+    }
+  ]
 }
