@@ -1,6 +1,0 @@
-/* Server-authoritative PayPal catalog. Never trust browser-supplied prices. */
-module.exports=Object.freeze({
-  discovery:Object.freeze({id:'discovery',name:'GEI Discovery Pack',description:'Starter premium GEI content.',price:'10.00',currency:'USD',entitlement:'gei.discovery'}),
-  builder:Object.freeze({id:'builder',name:'GEI Builder Pack',description:'Expanded GEI builder content.',price:'25.00',currency:'USD',entitlement:'gei.builder'}),
-  'master-blueprint':Object.freeze({id:'master-blueprint',name:'GEI Master Blueprint',description:'Premium GEI blueprint access.',price:'69.00',currency:'USD',entitlement:'gei.master-blueprint'})
-});
