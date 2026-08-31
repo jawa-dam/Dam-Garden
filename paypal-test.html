@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEI Dam Garden — PayPal Sandbox Test</title>
+<style>
+body{margin:0;background:#071b2c;color:#eaf6ff;font-family:system-ui,sans-serif;min-height:100vh;display:grid;place-items:center;padding:20px}
+.card{width:min(520px,100%);background:#0f2f47;border:1px solid #24506b;border-radius:22px;padding:24px;box-sizing:border-box;box-shadow:0 20px 60px #0008}
+h1{margin:0 0 6px;color:#22c7e8}p{color:#9fc0d8;line-height:1.5}
+label{display:block;font-size:.85rem;margin:16px 0 6px;color:#b9d7ea}
+input,select{width:100%;box-sizing:border-box;padding:13px;border-radius:12px;border:1px solid #35627a;background:#071b2c;color:#fff;font-size:16px}
+#paypal-button-container{margin-top:20px}
+#status{margin-top:18px;padding:12px;border-radius:12px;background:#071b2c;white-space:pre-wrap;font-family:monospace;font-size:13px}
+.ok{color:#46d19c}.bad{color:#ff6b6b}.small{font-size:12px}
+</style>
+</head>
+<body>
+<main class="card">
+<h1>🌊 GEI Dam Garden</h1>
+<h2>PayPal Sandbox Purchase Test</h2>
+<p>This page performs one real Sandbox transaction against the Dam-Garden PayPal backend. No live money is used.</p>
+
+<label for="player">Explorer name</label>
+<input id="player" maxlength="80" placeholder="Your game name">
+
+<label for="product">Test product</label>
+<select id="product">
+<option value="discovery">GEI Discovery Pack — $10.00</option>
+<option value="builder">GEI Builder Pack — $25.00</option>
+<option value="master-blueprint">GEI Master Blueprint — $69.00</option>
+</select>
+
+<div id="paypal-button-container"></div>
+<div id="status">Loading PayPal Sandbox…</div>
+<p class="small">Use a PayPal Sandbox Personal/Buyer account at checkout. Do not use your live PayPal credentials.</p>
+</main>
+
+<script>
+(function(){
+'use strict';
+const status=document.getElementById('status');
+const player=document.getElementById('player');
+const product=document.getElementById('product');
+function show(msg,ok){status.textContent=msg;status.className=ok?'ok':'bad';}
+async function json(url,opts){
+ const r=await fetch(url,opts);
+ const b=await r.json().catch(()=>({}));
+ if(!r.ok) throw new Error((b&&b.error)||('HTTP '+r.status));
+ return b;
+}
+async function boot(){
+ try{
+   const cfg=await json('/api/paypal/config');
+   if(!cfg.clientId) throw new Error('PayPal Client ID is not configured.');
+   const s=document.createElement('script');
+   s.src='https://www.paypal.com/sdk/js?client-id='+encodeURIComponent(cfg.clientId)+'&currency=USD&intent=capture';
+   s.onload=renderButtons;
+   s.onerror=()=>show('Could not load PayPal Sandbox SDK.',false);
+   document.head.appendChild(s);
+ }catch(e){show('Setup error: '+e.message,false);}
+}
+function renderButtons(){
+ if(!window.paypal){show('PayPal SDK did not initialize.',false);return;}
+ paypal.Buttons({
+   style:{layout:'vertical',shape:'rect',label:'paypal'},
+   createOrder:async function(){
+     const name=player.value.trim();
+     if(!name){alert('Enter your explorer name first.');throw new Error('player-name-required');}
+     show('Creating PayPal Sandbox order…',true);
+     const b=await json('/api/paypal/create-order',{
+       method:'POST',headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({productId:product.value,playerName:name})
+     });
+     if(!b.orderID)throw new Error('No PayPal order ID returned.');
+     return b.orderID;
+   },
+   onApprove:async function(data){
+     try{
+       show('Payment approved. Capturing order '+data.orderID+'…',true);
+       const b=await json('/api/paypal/capture-order',{
+         method:'POST',headers:{'Content-Type':'application/json'},
+         body:JSON.stringify({orderID:data.orderID,productId:product.value,playerName:player.value.trim()})
+       });
+       show('SUCCESS!\\n\\nOrder: '+data.orderID+'\\nEntitlement: '+(b.entitlement&&b.entitlement.entitlement||'granted')+'\\n\\nThe Dam-Garden PayPal purchase flow completed.',true);
+       console.log('Dam-Garden PayPal capture:',b);
+     }catch(e){show('Capture error: '+e.message,false);}
+   },
+   onCancel:function(data){show('Buyer cancelled checkout. Order: '+(data&&data.orderID||'unknown'),false);},
+   onError:function(err){console.error(err);show('PayPal checkout error. See browser console for details.',false);}
+ }).render('#paypal-button-container').catch(function(e){show('PayPal button error: '+e.message,false);});
+}
+boot();
+})();
+</script>
+</body>
+</html>
