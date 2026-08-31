@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/paypal/:path*",
-      "destination": "/api/paypal/handler"
+      "destination": "/api/paypal/handler.js"
     }
   ]
 }
