@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "api/paypal/handler.js": { "runtime": "nodejs18.x" }
-  },
-  "rewrites": [
-    { "source": "/api/paypal/:path*", "destination": "/api/paypal/handler.js" }
-  ]
-}
