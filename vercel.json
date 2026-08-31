@@ -5,13 +5,5 @@
     "api/**/*.js": {
       "runtime": "nodejs22.x"
     }
-  },
-  "rewrites": [
-    { "source": "/api/paypal/health", "destination": "/api/paypal-health" },
-    { "source": "/api/paypal/config", "destination": "/api/paypal-config" },
-    { "source": "/api/paypal/create-order", "destination": "/api/paypal-create-order" },
-    { "source": "/api/paypal/capture-order", "destination": "/api/paypal-capture-order" },
-    { "source": "/api/paypal/entitlements", "destination": "/api/paypal-entitlements" },
-    { "source": "/api/paypal/webhook", "destination": "/api/paypal-webhook" }
-  ]
+  }
 }
